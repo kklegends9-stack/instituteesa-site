@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Institute for Economic and Strategic Affairs</title>
+
+  <style>
+    /* BASE STYLES */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', Arial, sans-serif;
+      background-color: #f7f9fc;
+      color: #212529;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    a {
+      color: #0056b3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #003580;
+      outline: none;
+      text-decoration: underline;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    h1, h2, h3 {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      color: #004085; /* Dark blue */
+    }
+    p {
+      margin-bottom: 1em;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(90deg, #003366, #0059b3);
+      color: white;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+    /* NAVIGATION */
+    nav ul {
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+    }
+    nav li {
+      position: relative;
+    }
+    nav a {
+      padding: 12px 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+    nav a:hover,
+    nav a:focus,
+    nav a.active {
+      background-color: #003366;
+      border-radius: 4px;
+      color: white;
+    }
+
+    /* HERO / FEATURED BANNER */
+    .hero {
+      background: #e9f1fc;
+      padding: 80px 20px 60px;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #003366;
+    }
+    .hero .cta-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-secondary {
+      padding: 14px 30px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background-color: #0059b3;
+      color: white;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #003d7a;
+      outline: none;
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: #0059b3;
+      border: 2px solid #0059b3;
+    }
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      background-color: #0059b3;
+      color: white;
+      outline: none;
+    }
+
+    /* WORLD MAP IMAGE */
+    .world-map-wrapper {
+      max-width: 1000px;
+      margin: 40px auto 60px;
+      text-align: center;
+    }
+    .world-map-wrapper img {
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      max-height: 350px;
+      object-fit: contain;
+    }
+
+    /* MAIN CONTENT SECTIONS */
+    section {
+      margin-bottom: 80px;
+    }
+    section h2 {
+      font-size: 2.2rem;
+      border-left: 6px solid #0059b3;
+      padding-left: 14px;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    section p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    /* RESEARCH AREAS GRID */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .research-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #e3e6ef;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.07);
+      transition: box-shadow 0.3s ease;
+    }
+    .research-card:hover {
+      box-shadow: 0 15px 40px rgb(0 0 0 / 0.15);
+    }
+    .research-card h3 {
+      margin-bottom: 12px;
+      color: #003366;
+      font-weight: 700;
+    }
+    .research-card p {
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* PUBLICATIONS LIST */
+    .publications-list li {
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .publications-list li a {
+      color: #0059b3;
+    }
+    .publications-list li a:hover,
+    .publications-list li a:focus {
+      color: #003366;
+      text-decoration: underline;
+    }
+
+    /* EVENTS LIST */
+    .events-list li {
+      margin-bottom: 24px;
+    }
+    .events-list li span {
+      font-weight: 700;
+      color: #0059b3;
+      display: block;
+    }
+    .events-list li p {
+      color: #444;
+      font-size: 1rem;
+      margin-top: 6px;
+    }
+
+    /* CONTACT FORM */
+    form {
+      background-color: white;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 30px;
+      border-radius: 14px;
+      border: 1px solid #d9dee8;
+      box-shadow: 0 12px 40px rgb(0 0 0 / 0.06);
+    }
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #222;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    form input:focus, form textarea:focus {
+      border-color: #0059b3;
+      outline: none;
+    }
+    form button {
+      background-color: #0059b3;
+      color: white;
+      border: none;
+      padding: 16px 36px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover,
+    form button:focus {
+      background-color: #003d7a;
+      outline: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer p {
+      margin: 8px 0;
+    }
+    footer a {
+      color: #80bfff;
+      margin: 0 10px;
+      font-weight: 600;
+    }
+    footer a:hover,
+    footer a:focus {
+      color: #cce4ff;
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* SCROLL-TO-TOP BUTTON */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 35px;
+      right: 35px;
+      padding: 14px 18px;
+      font-size: 24px;
+      border: none;
+      border-radius: 50%;
+      background-color: #0059b3;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 9999;
+      transition: background-color 0.3s ease;
+    }
+    #scrollTopBtn:hover,
+    #scrollTopBtn:focus {
+      background-color: #003d7a;
+      outline: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+      .hero h2 {
+        font-size: 2rem;
+      }
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Institute for Economic and Strategic Affairs</h1>
+    <nav>
+      <ul>
+        <li><a href="#mission" class="active">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h2>Advancing Thought Leadership in Economic and Strategic Affairs</h2>
+    <p>We provide rigorous, independent research and analysis to influence policymaking and foster international collaboration on critical issues shaping our global future.</p>
+    <div class="cta-buttons">
+      <a href="#publications" class="btn-primary">View Publications</a>
+      <a href="#contact" class="btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="world-map-wrapper container">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Map" loading="lazy" />
+</div>
+
+<section id="mission" class="container">
+  <h2>About Us</h2>
+  <p>The Institute for Economic and Strategic Affairs is a leading independent think tank dedicated to producing high-quality research that informs policymakers, experts, and the public. Our work spans global economic policy, strategic security analysis, technology innovation, and sustainable development to tackle the challenges of the 21st century.</p>
+</section>
+
+<section id="research" class="container">
+  <h2>Research Areas</h2>
+  <div class="research-grid">
+    <article class="research-card">
+      <h3>Global Economic Policy</h3>
+      <p>Deep analysis of international trade, monetary systems, and development trends that shape the global economy.</p>
+    </article>
+    <article class="research-card">
+      <h3>Security and Defence Strategy</h3>
+      <p>Assessment of emerging security threats, defense policies, and geopolitical risks to inform national and international strategies.</p>
+    </article>
+    <article class="research-card">
+      <h3>Technology & Innovation</h3>
+      <p>Exploring how innovation and disruptive technologies influence economic growth and alter strategic balances worldwide.</p>
+    </article>
+    <article class="research-card">
+      <h3>Climate Change and Sustainability</h3>
+      <p>Providing frameworks and policy recommendations to advance sustainability and mitigate climate risks globally.</p>
+    </article>
+  </div>
+</section>
+
+<section id="publications" class="container">
+  <h2>Featured Publications</h2>
+  <ul class="publications-list">
+    <li><a href="#" target="_blank" rel="noopener noreferrer">Monetary Policies and Global Market Trends (2025)</a></li>
+    <li><a href="#" target="_blank" rel="noopener noreferrer">Strategies for Emerging Security Threats (2024)</a></li>
+    <li><a href="#" target="_blank" rel="noopener noreferrer">Technology’s Role in Economic Resilience (2023)</a></li>
+    <li><a href="#" target="_blank" rel="noopener noreferrer">Pathways to Sustainable Development (2023)</a></li>
+  </ul>
+</section>
+
+<section id="events" class="container">
+  <h2>Events & News</h2>
+  <ul class="events-list">
+    <li>
+      <span>Sep 15, 2025</span>
+      <p>Launch of new research report on global economic shifts. Join us for a webinar featuring leading experts discussing recent global trends and implications.</p>
+    </li>
+    <li>
+      <span>Nov 10, 2025</span>
+      <p>Panel discussion on climate policy and international cooperation. Event held online with global stakeholders.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="contact" class="container">
+  <h2>Contact Us</h2>
+  <form onsubmit="alert('Form submission is not currently configured. Please contact us via email.')">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your email address" required>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Type your message here" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<section class="container" id="newsletter">
+  <h2>Subscribe to Our Newsletter</h2>
+  <form onsubmit="alert('Thank you for subscribing! (Form not connected)');return false;">
+    <label for="email-newsletter">Email Address</label>
+    <input type="email" id="email-newsletter" name="email-newsletter" placeholder="you@example.com" required />
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Institute for Economic and Strategic Affairs</p>
+  <p>
+    <a href="#" aria-label="Twitter">Twitter</a> |
+    <a href="#" aria-label="LinkedIn">LinkedIn</a> |
+    <a href="#" aria-label="Facebook">Facebook</a>
+  </p>
+</footer>
+
+<button id="scrollTopBtn" title="Back to top">↑</button>
+
+<script>
+  // Smooth scrolling and active link highlight
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Scroll to top button functionality
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollBtn.style.display = 'block';
+    } else {
+      scrollBtn.style.display = 'none';
+    }
+  });
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
